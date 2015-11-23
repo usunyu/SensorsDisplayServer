@@ -7,11 +7,65 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="Sensor Display Dashboard">
+        <meta name="description" content="Sensors Display Dashboard">
         <meta name="author" content="Yu Sun">
-        <title>Sensor Display Dashboard</title>
+        <title>Sensors Display Dashboard</title>
+        <script type="text/javascript" src="{% static 'sensors_display/jquery/jquery.min.js' %}"></script>
+        <script type="text/javascript" src="{% static 'sensors_display/smoothie.js' %}"></script>
+        <script type="text/javascript">
+
+            var interval = 80;
+
+            var api_uri = '/api/read/?format=json';
+            var set_title = false;
+
+            var sensor_x = new TimeSeries();
+            var sensor_y = new TimeSeries();
+            var sensor_z = new TimeSeries();
+            setInterval(function() {
+                $.ajax({
+                    url: api_uri,
+                    success: function(result) {
+                        // console.log(result);
+                        if (!set_title) {
+                            $("#sensortitle_x").text(result.sensorType + "Value X");
+                            $("#sensortitle_y").text(result.sensorType + "Value Y");
+                            $("#sensortitle_z").text(result.sensorType + "Value Z");
+                        }
+                        sensor_x.append(new Date().getTime(), result.sensorValues[0]);
+                        sensor_y.append(new Date().getTime(), result.sensorValues[1]);
+                        sensor_z.append(new Date().getTime(), result.sensorValues[2]);
+                    },
+                    error: function(error) {
+                        console.log(error);
+                    }
+                });
+            }, interval);
+          
+            function loadSensorData() {
+
+                var chart_x = new SmoothieChart({maxValue: 10, minValue:-10});
+                chart_x.addTimeSeries(sensor_x, { strokeStyle: 'rgba(255, 255, 255, 1)', fillStyle: 'rgba(255, 255, 255, 0.2)', lineWidth: 1 });
+                chart_x.streamTo(document.getElementById("sensorcanvas_x"), interval);
+
+                var chart_y = new SmoothieChart({maxValue: 10, minValue:-10});
+                chart_y.addTimeSeries(sensor_y, { strokeStyle: 'rgba(255, 255, 255, 1)', fillStyle: 'rgba(255, 255, 255, 0.2)', lineWidth: 1 });
+                chart_y.streamTo(document.getElementById("sensorcanvas_y"), interval);
+
+                var chart_z = new SmoothieChart({maxValue: 10, minValue:-10});
+                chart_z.addTimeSeries(sensor_z, { strokeStyle: 'rgba(255, 255, 255, 1)', fillStyle: 'rgba(255, 255, 255, 0.2)', lineWidth: 1 });
+                chart_z.streamTo(document.getElementById("sensorcanvas_z"), interval);
+            }
+
+        </script>
     </head>
-    <body>
-        <div>Hello World</div>
+    <body onload="loadSensorData()" bgcolor="black">
+        <h3 style="color: white;">Sensors Display Dashboard</h3>
+        <h4 id="sensortitle_x" style="color: white;"></h4>
+        <canvas id="sensorcanvas_x" width="1000" height="150"></canvas>
+        <h4 id="sensortitle_y" style="color: white;"></h4>
+        <canvas id="sensorcanvas_y" width="1000" height="150"></canvas>
+        <h4 id="sensortitle_z" style="color: white;"></h4>
+        <canvas id="sensorcanvas_z" width="1000" height="150"></canvas>
     </body>
 </html>

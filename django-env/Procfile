@@ -1,0 +1,1 @@
+web: gunicorn sensors_display.wsgi --log-file -
