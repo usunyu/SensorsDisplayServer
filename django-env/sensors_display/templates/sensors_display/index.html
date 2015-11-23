@@ -28,9 +28,9 @@
                     success: function(result) {
                         // console.log(result);
                         if (!set_title) {
-                            $("#sensortitle_x").text(result.sensorType + "Value X");
-                            $("#sensortitle_y").text(result.sensorType + "Value Y");
-                            $("#sensortitle_z").text(result.sensorType + "Value Z");
+                            $("#sensortitle_x").text(result.sensorType + " Value X");
+                            $("#sensortitle_y").text(result.sensorType + " Value Y");
+                            $("#sensortitle_z").text(result.sensorType + " Value Z");
                         }
                         sensor_x.append(new Date().getTime(), result.sensorValues[0]);
                         sensor_y.append(new Date().getTime(), result.sensorValues[1]);
