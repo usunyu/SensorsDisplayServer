@@ -44,15 +44,15 @@
           
             function loadSensorData() {
 
-                var chart_x = new SmoothieChart({maxValue: 10, minValue:-10});
+                var chart_x = new SmoothieChart();
                 chart_x.addTimeSeries(sensor_x, { strokeStyle: 'rgba(255, 255, 255, 1)', fillStyle: 'rgba(255, 255, 255, 0.2)', lineWidth: 1 });
                 chart_x.streamTo(document.getElementById("sensorcanvas_x"), interval);
 
-                var chart_y = new SmoothieChart({maxValue: 10, minValue:-10});
+                var chart_y = new SmoothieChart();
                 chart_y.addTimeSeries(sensor_y, { strokeStyle: 'rgba(255, 255, 255, 1)', fillStyle: 'rgba(255, 255, 255, 0.2)', lineWidth: 1 });
                 chart_y.streamTo(document.getElementById("sensorcanvas_y"), interval);
 
-                var chart_z = new SmoothieChart({maxValue: 10, minValue:-10});
+                var chart_z = new SmoothieChart();
                 chart_z.addTimeSeries(sensor_z, { strokeStyle: 'rgba(255, 255, 255, 1)', fillStyle: 'rgba(255, 255, 255, 0.2)', lineWidth: 1 });
                 chart_z.streamTo(document.getElementById("sensorcanvas_z"), interval);
             }
