@@ -25,7 +25,7 @@ urlpatterns = [
     # rest framework urls
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     # write/read data api
-    url(r'^api/write/$', apis.SensorsData.as_view()),
+    url(r'^api/data/$', apis.SensorsData.as_view()),
     # write/read range api
-    url(r'^api/read/$', apis.SensorRange.as_view()),
+    url(r'^api/range/$', apis.SensorRange.as_view()),
 ]
