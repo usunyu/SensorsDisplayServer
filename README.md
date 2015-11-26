@@ -1,2 +1,2 @@
-# SensorsDisplayServer
+# SensorsDisplayUtility
 Monitor dynamic sensor change
