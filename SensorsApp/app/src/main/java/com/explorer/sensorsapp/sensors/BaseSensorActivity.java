@@ -1,4 +1,4 @@
-package com.explorer.sensorsapp;
+package com.explorer.sensorsapp.sensors;
 
 import android.app.Activity;
 import android.content.Context;
@@ -52,6 +52,12 @@ public class BaseSensorActivity extends Activity implements SensorEventListener 
                 break;
             case Sensor.TYPE_MAGNETIC_FIELD:
                 str = "MAGNETIC_FIELD";
+                break;
+            case Sensor.TYPE_LINEAR_ACCELERATION:
+                str = "LINEAR_ACCELERATION";
+                break;
+            case Sensor.TYPE_GYROSCOPE_UNCALIBRATED:
+                str = "GYROSCOPE_UNCALIBRATED";
                 break;
             default:
                 str = "UNKNOWN";

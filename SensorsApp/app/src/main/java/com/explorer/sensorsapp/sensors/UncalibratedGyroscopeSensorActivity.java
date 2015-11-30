@@ -1,12 +1,12 @@
-package com.explorer.sensorsapp;
+package com.explorer.sensorsapp.sensors;
 
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 
 /**
- * Created by Sun on 11/25/15.
+ * Created by Sun on 11/29/15.
  */
-public class RotationVectorSensor extends BaseSensorActivity {
+public class UncalibratedGyroscopeSensorActivity extends BaseSensorActivity {
 
     @Override
     protected void onResume() {
@@ -21,12 +21,11 @@ public class RotationVectorSensor extends BaseSensorActivity {
     }
 
     public void startSensors() {
-        Sensor sensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ROTATION_VECTOR);
+        Sensor sensor = mSensorManager.getDefaultSensor(Sensor.TYPE_GYROSCOPE_UNCALIBRATED);
         mSensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL);
     }
 
     public void stopSensors() {
         mSensorManager.unregisterListener(this);
     }
-
 }

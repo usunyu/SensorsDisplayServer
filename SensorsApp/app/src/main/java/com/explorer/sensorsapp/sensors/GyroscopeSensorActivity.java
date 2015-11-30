@@ -1,4 +1,4 @@
-package com.explorer.sensorsapp;
+package com.explorer.sensorsapp.sensors;
 
 import android.hardware.Sensor;
 import android.hardware.SensorManager;

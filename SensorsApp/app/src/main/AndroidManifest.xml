@@ -16,19 +16,25 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AccelerometerSensorActivity">
+            android:name=".sensors.AccelerometerSensorActivity">
         </activity>
         <activity
-            android:name=".GyroscopeSensorActivity">
+            android:name=".sensors.GyroscopeSensorActivity">
         </activity>
         <activity
-            android:name=".MagneticFieldSensor">
+            android:name=".sensors.MagneticFieldSensorActivity">
         </activity>
         <activity
-            android:name=".GravitySensor">
+            android:name=".sensors.GravitySensorActivity">
         </activity>
         <activity
-            android:name=".RotationVectorSensor">
+            android:name=".sensors.RotationVectorSensorActivity">
+        </activity>
+        <activity
+            android:name=".sensors.UncalibratedGyroscopeSensorActivity">
+        </activity>
+        <activity
+            android:name=".sensors.LinearAccelerometerSensorActivity">
         </activity>
     </application>
 

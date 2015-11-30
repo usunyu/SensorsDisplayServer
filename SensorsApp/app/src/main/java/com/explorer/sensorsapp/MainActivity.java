@@ -6,6 +6,14 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.explorer.sensorsapp.sensors.AccelerometerSensorActivity;
+import com.explorer.sensorsapp.sensors.GravitySensorActivity;
+import com.explorer.sensorsapp.sensors.GyroscopeSensorActivity;
+import com.explorer.sensorsapp.sensors.LinearAccelerometerSensorActivity;
+import com.explorer.sensorsapp.sensors.MagneticFieldSensorActivity;
+import com.explorer.sensorsapp.sensors.RotationVectorSensorActivity;
+import com.explorer.sensorsapp.sensors.UncalibratedGyroscopeSensorActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -33,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(MainActivity.this, MagneticFieldSensor.class);
+                        Intent intent = new Intent(MainActivity.this, MagneticFieldSensorActivity.class);
                         startActivity(intent);
                     }
                 });
@@ -41,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(MainActivity.this, GravitySensor.class);
+                        Intent intent = new Intent(MainActivity.this, GravitySensorActivity.class);
                         startActivity(intent);
                     }
                 });
@@ -49,7 +57,23 @@ public class MainActivity extends AppCompatActivity {
                 new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(MainActivity.this, RotationVectorSensor.class);
+                        Intent intent = new Intent(MainActivity.this, RotationVectorSensorActivity.class);
+                        startActivity(intent);
+                    }
+                });
+        ((Button) findViewById(R.id.uncalibrated_gyroscope_sensor)).setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(MainActivity.this, UncalibratedGyroscopeSensorActivity.class);
+                        startActivity(intent);
+                    }
+                });
+        ((Button) findViewById(R.id.linear_accelerometer_sensor)).setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(MainActivity.this, LinearAccelerometerSensorActivity.class);
                         startActivity(intent);
                     }
                 });

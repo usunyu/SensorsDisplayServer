@@ -49,4 +49,20 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/gravity_sensor"
         android:layout_alignParentStart="true"/>
+
+    <Button
+        android:id="@+id/uncalibrated_gyroscope_sensor"
+        android:text="Uncalibrated Gyroscope Sensor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rotation_vector_sensor"
+        android:layout_alignParentStart="true"/>
+
+    <Button
+        android:id="@+id/linear_accelerometer_sensor"
+        android:text="Linear Accelerometer Sensor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/uncalibrated_gyroscope_sensor"
+        android:layout_alignParentStart="true"/>
 </RelativeLayout>

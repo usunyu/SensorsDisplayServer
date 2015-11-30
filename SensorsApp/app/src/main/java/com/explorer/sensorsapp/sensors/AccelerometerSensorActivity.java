@@ -1,4 +1,4 @@
-package com.explorer.sensorsapp;
+package com.explorer.sensorsapp.sensors;
 
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
@@ -6,7 +6,7 @@ import android.hardware.SensorManager;
 /**
  * Created by Sun on 11/25/15.
  */
-public class MagneticFieldSensor extends BaseSensorActivity {
+public class AccelerometerSensorActivity extends BaseSensorActivity {
 
     @Override
     protected void onResume() {
@@ -21,7 +21,7 @@ public class MagneticFieldSensor extends BaseSensorActivity {
     }
 
     public void startSensors() {
-        Sensor sensor = mSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
+        Sensor sensor = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         mSensorManager.registerListener(this, sensor, SensorManager.SENSOR_DELAY_NORMAL);
     }
 
